@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx nodemon --exec babel-node src/index.js"
+    "start": "npx nodemon --exec babel-node src/index.js -e js,gql"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "apollo-server": "^2.15.1",
     "dotenv": "^8.2.0",
     "graphql": "^15.2.0",
+    "merge-graphql-schemas": "^1.7.8",
     "mongoose": "^5.9.21"
   }
 }

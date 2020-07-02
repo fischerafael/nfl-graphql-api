@@ -1,0 +1,25 @@
+type Team {
+    _id: ID!
+    name: String!
+    city: String!
+    state: String!
+    logo: String!
+}
+
+input TeamInput {
+    name: String! 
+    city: String! 
+    state: String! 
+    logo: String!
+}
+
+type Query {
+    teams: [Team!]!
+    team(_id: ID!): Team!
+}
+
+type Mutation {
+    createTeam(data: TeamInput!): Team!
+    updateTeam(_id: ID!, data: TeamInput!): Team!
+    deleteTeam(_id: ID!): Boolean
+}

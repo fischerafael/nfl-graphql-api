@@ -1,0 +1,21 @@
+type Superbowl {
+    _id: ID!
+    year: Int!
+    team: Team!
+}
+
+input SuperbowlInput {
+    year: Int!
+    team: ID!
+}
+
+type Query {
+    superbowls: [Superbowl!]!
+    superbowl(year: Int!): Superbowl!
+}
+
+type Mutation {
+    createSuperbowl(data: SuperbowlInput!): Superbowl!
+    updateSuperbowl(year: Int!, data: SuperbowlInput!): Superbowl!
+    deleteSuperbowl(year: Int!): Boolean
+}
