@@ -1,7 +1,8 @@
 import mongoose from 'mongoose'
+require('dotenv').config()
 
 function dbConnection() {
-    mongoose.connect('mongodb+srv://nfl:nfl@cluster0-qqsuz.mongodb.net/nfl?retryWrites=true&w=majority', {
+    mongoose.connect(process.env.DB_CONNECTION, {
         useUnifiedTopology: true,
         useNewUrlParser: true
     }, () => console.log('Connected to MongoDB Atlas'))
