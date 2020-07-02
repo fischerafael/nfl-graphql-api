@@ -1,3 +1,5 @@
-# npm install @babel/core @babel/cli @babel/preset-env @babel/node -D
 node_modules
 .env
+
+# DB_CONNECTION = <URI>
+# npm install @babel/core @babel/cli @babel/preset-env @babel/node -D
