@@ -20,9 +20,9 @@ export default {
             return createdTeam
         },
         updateTeam: async (_, { _id, data }, { authorization }) => {  
-            isAuth(authorization)
+            isAuth(authorization)            
             
-            const updatedTeam = Team.findByIdAndUpdate(_id, data, { new: true })
+            const updatedTeam = await Team.findByIdAndUpdate(_id, data, { new: true })
             return updatedTeam
         },
         deleteTeam: async (_, { _id }, { authorization }) => {
