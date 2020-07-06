@@ -1,4 +1,5 @@
 import Team from '../../../models/team'
+import isAuth from '../../../utils/isAuth'
 
 export default {
     Query: {
@@ -12,15 +13,21 @@ export default {
         },
     },
     Mutation: {
-        createTeam: async (_, { data }) => {
+        createTeam: async (_, { data }, { authorization }) => {
+            isAuth(authorization)
+
             const createdTeam = await Team.create(data)
             return createdTeam
         },
-        updateTeam: async (_, { _id, data }) => {        
+        updateTeam: async (_, { _id, data }, { authorization }) => {  
+            isAuth(authorization)
+            
             const updatedTeam = Team.findByIdAndUpdate(_id, data, { new: true })
             return updatedTeam
         },
-        deleteTeam: async (_, { _id }) => {
+        deleteTeam: async (_, { _id }, { authorization }) => {
+            isAuth(authorization)
+
             const deletedTeam = await Team.findByIdAndDelete(_id)
             return !!deletedTeam
         }
