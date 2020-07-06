@@ -1,11 +1,10 @@
 import mongoose from 'mongoose'
-require('dotenv').config()
 
-function dbConnection() {
-    mongoose.connect(process.env.DB_CONNECTION, {
+function dbConnection(dbConnectionURI) {
+    mongoose.connect(dbConnectionURI, {
         useUnifiedTopology: true,
         useNewUrlParser: true        
-    }, () => console.log('Connected to MongoDB Atlas'))
+    }, () => console.log('Connected to DataBase'))
 }
 
 export default dbConnection
